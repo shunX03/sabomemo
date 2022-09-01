@@ -1,24 +1,30 @@
-# README
+# <ここにアプリ名を入力>
+サボメモ ~今日サボってしまった人のためのメモ帳~
+## サイト概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### サイトテーマ
+仕事、勉強などやらなきゃいけないことをやらずサボった時間何をしていたかをメモするアプリケーション。
 
-Things you may want to cover:
+### テーマを選んだ理由
+サボることを"俺はダメだ" "サボることは良くない"と感じる人が多いと思いますが、サボった時間を可視化し
+自己評価をメモとし、さらにいいねやランキング機能を搭載しそれらを通して"メリハリをつけれるようになった" "サボることも悪くない"などと
+ポジティブな時間が増えたと感じる人を増やし、今を楽しんでほしいためにこのテーマを選びました。
 
-* Ruby version
+### ターゲットユーザー
+主に社会人。大学生、高校生も使えると思います。
 
-* System dependencies
+### 主な利用シーン
+何かしらでサボった日
 
-* Configuration
+## 設計書
 
-* Database creation
 
-* Database initialization
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+"Linustock" URL:https://www.linustock.com/vectors
