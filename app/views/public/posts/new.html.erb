@@ -1,0 +1,22 @@
+<h1>新規投稿</h1>
+<%= form_with model: @post, url: public_posts_path, method: :post do |f| %>
+
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+
+  <h4>本文</h4>
+  <%= f.text_area :body %>
+
+  <h4>時間</h4>
+  <%= f.number_field :waste, step: '0.1', class:'input_form' %>
+
+  <%= f.collection_radio_buttons :evaluation, Post.evaluations_i18n, :first, :last %>
+  <%= f.submit '投稿' %>
+
+<%= Post.evaluations_i18n.values.join(",") %>
+<% end %>
+
+
+
+
+

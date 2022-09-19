@@ -1,0 +1,9 @@
+ ja:
+    enums:
+      post:
+        evaluation:
+          worst: "最悪"
+          bad: "悪い"
+          nb: "普通"
+          good: "良い"
+          best: "最高"

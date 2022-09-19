@@ -1,0 +1,31 @@
+<!--配列の1つ目から順に1位、２位と表示される-->
+<% @post_like_ranks.each.with_index(1) do |post,i| %>
+ 第<%= i %>位
+     <tr>
+        <td>
+          <%= link_to public_post_path(post.id) do %>
+            <%= image_tag post.user.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to public_post_path(post.id) do %>
+        　  <%= post.user.name %>
+        　<% end %>
+        <td>
+          <%= link_to post.title, public_post_path(post.id) %>
+        </td>
+      </tr>
+      <% if post.liked_by?(current_user) %>
+        <td>
+          <%= link_to public_post_likes_path(post), method: :delete do %>
+            <%= post.likes.count %>❤️
+          <% end %>
+        </td>
+      <% else %>
+        <td>
+          <%= link_to public_post_likes_path(post), method: :post do %>
+           <%= post.likes.count %>🤍
+          <% end %>
+        </td>
+      <% end %>
+  <% end %>

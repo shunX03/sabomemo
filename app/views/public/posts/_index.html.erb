@@ -1,0 +1,40 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>なまえ</th>
+      <th>たいとる</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.each do |post| %>
+      <tr>
+        <td>
+          <%= link_to public_post_path(post.id) do %>
+            <%= image_tag post.user.get_profile_image, size:'50x50' %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to public_post_path(post.id) do %>
+        　  <%= post.user.name %>
+        　<% end %>
+        <td>
+          <%= link_to post.title, public_post_path(post.id) %>
+        </td>
+      </tr>
+      <% if post.liked_by?(current_user) %>
+        <td>
+          <%= link_to public_post_likes_path(post), method: :delete do %>
+            <%= post.likes.count %>❤️
+          <% end %>
+        </td>
+      <% else %>
+        <td>
+          <%= link_to public_post_likes_path(post), method: :post do %>
+           <%= post.likes.count %>🤍
+          <% end %>
+        </td>
+      <% end %>
+    <% end %>
+  </tbody>

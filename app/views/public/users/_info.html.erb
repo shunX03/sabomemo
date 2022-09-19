@@ -1,0 +1,17 @@
+<table class='table'>
+  <tr><%= image_tag user.get_profile_image, size:"100x100"%></tr>
+  <tr>
+	  <th>なまえ</th>
+	  <th><%= user.name %></th>
+  </tr>
+  <tr>
+	  <th>ひとこと</th>
+	  <th><%= user.introduction %></th>
+	 </tr>
+
+</table>
+
+<div class='row'>
+  <%= link_to "編集" ,edit_public_user_path(user), class: "text-dark" %>
+
+</div>
