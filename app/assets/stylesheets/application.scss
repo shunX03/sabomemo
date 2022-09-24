@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+
+html, body {
+  font-family: 'Noto Serif JP', serif;
+}
+
+
+
+
+
 
 .matrix .bg-wrap,
 .matrix .bg-wrap .inn {

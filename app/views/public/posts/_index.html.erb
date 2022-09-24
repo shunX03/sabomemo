@@ -1,40 +1,46 @@
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>なまえ</th>
-      <th>たいとる</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% posts.each do |post| %>
-      <tr>
-        <td>
-          <%= link_to public_post_path(post.id) do %>
-            <%= image_tag post.user.get_profile_image, size:'50x50' %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to public_post_path(post.id) do %>
-        　  <%= post.user.name %>
-        　<% end %>
-        <td>
-          <%= link_to post.title, public_post_path(post.id) %>
-        </td>
-      </tr>
-      <% if post.liked_by?(current_user) %>
-        <td>
-          <%= link_to public_post_likes_path(post), method: :delete do %>
-            <%= post.likes.count %>❤️
-          <% end %>
-        </td>
-      <% else %>
-        <td>
-          <%= link_to public_post_likes_path(post), method: :post do %>
-           <%= post.likes.count %>🤍
-          <% end %>
-        </td>
+<ul class="media-list">
+  <% posts.each do |post| %>
+   <li class='media'>
+    <div class="media-left">
+     <%= link_to public_post_path(post.id) do %>
+      <%= image_tag post.user.get_profile_image, class: "rounded-circle", size:'50x50' %>
+     <% end %>
+    </div>
+     <div class="media-body">
+      <div class="media-heading">
+       <h6 class="posts">
+      <%= link_to public_post_path(post.id), class: 'position: relative' do %>
+        <%= post.user.name %>
       <% end %>
-    <% end %>
-  </tbody>
+        <span class="text-muted">
+         <%= post.created_at.strftime('%Y/%m/%d') %>
+        </span>
+          <strong>満足度：<%= post.evaluation_i18n %></strong> /
+           <strong><%= post.waste %>時間</strong>
+         </h6>
+      </div>
+    <div class="post-text mt-3">
+     <%= post.body %>
+    </div>
+     <div class='media-footer border-bottom text-dark mt-3'>
+       <% if post.liked_by?(current_user) %>
+        <%= link_to public_post_likes_path(post), class: 'text-dark', method: :delete do %>
+         <i class="fas fa-thumbs-up"></i><%= post.likes.count %>
+        <% end %>
+       <% else %>
+        <%= link_to public_post_likes_path(post), class: 'text-dark',  method: :post do %>
+         <i class="far fa-thumbs-up"></i><%= post.likes.count %>
+        <% end %>
+       <% end %>
+         <% if post.user == current_user %>
+          <%= link_to public_post_path(post.id), class: 'text-dark text-right', method: :delete do %>
+           <i class="far fa-trash-alt"></i>
+          <% end %>
+        <%= link_to edit_public_post_path(post.id),  class: 'text-dark text-right' do %>
+         <i class="fas fa-cog"></i>
+        <% end %>
+       <% end %>
+      </div>
+   </li>
+  <% end %>
+</ul>

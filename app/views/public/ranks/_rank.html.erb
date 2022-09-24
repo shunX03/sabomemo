@@ -1,0 +1,39 @@
+<ul class="media-list">
+  <% @post_like_ranks.each.with_index(1) do |post,i| %>
+   <li class='media'>
+    <div class="media-left">
+     第<%= i %>位
+     <%= link_to public_post_path(post.id) do %>
+      <%= image_tag post.user.get_profile_image, class: "rounded-circle", size:'50x50' %>
+     <% end %>
+    </div>
+     <div class="media-body">
+      <div class="media-heading">
+       <h6 class="posts">
+      <%= link_to public_post_path(post.id), class: 'position: relative' do %>
+        <%= post.user.name %>
+      <% end %>
+        <span class="text-muted">
+         <%= post.created_at.strftime('%Y/%m/%d') %>
+        </span>
+          <strong>満足度：<%= post.evaluation_i18n %></strong> /
+           <strong><%= post.waste %>時間</strong>
+         </h6>
+      </div>
+    <div class="post-text mt-3">
+     <%= post.body %>
+    </div>
+     <div class='media-footer border-bottom mt-3'>
+       <% if post.liked_by?(current_user) %>
+        <%= link_to public_post_likes_path(post), class: 'text-dark', method: :delete do %>
+         <i class="fas fa-thumbs-up"></i><%= post.likes.count %>
+        <% end %>
+       <% else %>
+        <%= link_to public_post_likes_path(post), class: 'text-dark',  method: :post do %>
+         <i class="far fa-thumbs-up"></i><%= post.likes.count %>
+        <% end %>
+       <% end %>
+      </div>
+   </li>
+  <% end %>
+</ul>

@@ -19,7 +19,8 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     @posts = Post.all
     if @post.save
-      redirect_to root_path, notice: "You have created book successfully."
+      aaa=[public_completions_path,public_completions2_index_path, public_completions3_index_path, public_completions4_index_path, public_completions5_index_path, public_completions6_index_path]
+      redirect_to aaa.sample
     else
       @posts = Post.all
       render :index
@@ -42,7 +43,7 @@ class Public::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to posts_path
+    redirect_to public_posts_path
   end
 
   private

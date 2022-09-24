@@ -8,9 +8,8 @@
 <% end %>
 
 <div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  		<h1>Editing Book</h1>
+ <div class='row'>
+  <div class='col-md-8 offset-md-2'>
   		<%= render 'form', post: @post %>
   		<%= link_to 'Show', public_post_path(@post.id) %> |
   		<%= link_to 'Back', public_posts_path, class: "back" %>

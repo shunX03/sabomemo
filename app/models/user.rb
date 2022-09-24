@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_one_attached :profile_image
 
   def get_profile_image
-    (profile_image.attached?) ? profile_image : 'noimage.png'
+    (profile_image.attached?) ? profile_image : 'no.user.png'
   end
 end

@@ -1,17 +1,17 @@
-<table class='table'>
-  <tr><%= image_tag user.get_profile_image, size:"100x100"%></tr>
-  <tr>
-	  <th>なまえ</th>
-	  <th><%= user.name %></th>
-  </tr>
-  <tr>
-	  <th>ひとこと</th>
-	  <th><%= user.introduction %></th>
-	 </tr>
-
-</table>
-
-<div class='row'>
-  <%= link_to "編集" ,edit_public_user_path(user), class: "text-dark" %>
-
-</div>
+<div class='card mt-3 w-75 border-dark'>
+  <div class='card-header border-dark'>
+    <div class="text-center">
+     <span><%= image_tag user.get_profile_image, class: "rounded-circle", size:"90x85"%></span>
+	    <h4><%= user.name %></h4>
+	    <%=link_to edit_public_user_path, class: 'text-dark' do %>
+	     <i class="fas fa-user-cog mt-2"></i>
+	    <% end %>
+	  </div>
+  </div>
+	 <div class='card-body border-dark text-center'>
+	  <%= user.introduction %>
+	 </div>
+	  <div class='card-footer text-center border-dark'>
+	    <%= link_to 'めもる', new_public_post_path, class: "btn btn-outline-dark" %>
+	  </div>
+	 </div>

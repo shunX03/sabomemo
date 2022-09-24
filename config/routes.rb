@@ -18,6 +18,12 @@ devise_for :admin,skip: [:registrations, :passwords], controllers: {
 end
   resources :users, only: [:show,:edit,:update]
   resources :ranks, only: [:index]
+  resources :completions, only: [:index]
+  resources :completions2, only: [:index]
+  resources :completions3, only: [:index]
+  resources :completions4, only: [:index]
+  resources :completions5, only: [:index]
+  resources :completions6, only: [:index]
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
