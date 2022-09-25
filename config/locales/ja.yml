@@ -7,3 +7,11 @@
           nb: "普通"
           good: "良い"
           best: "最高"
+
+    views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'

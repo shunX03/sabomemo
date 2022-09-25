@@ -10,8 +10,9 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
     @post = Post.new
+    @posts = Post.all
+    @pages = Post.page(params[:page]).per(10).order('created_at DESC')
   end
 
   def create
@@ -34,7 +35,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(posts_params)
-      redirect_to root_path(@post), notice: "You have updated book successfully."
+      redirect_to public_user_path(current_user)
     else
       render :edit
     end
@@ -43,7 +44,7 @@ class Public::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to public_posts_path
+    redirect_to request.referer
   end
 
   private
@@ -52,3 +53,4 @@ class Public::PostsController < ApplicationController
     params.require(:post).permit(:title, :body, :waste, :evaluation)
   end
 end
+

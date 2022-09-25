@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     @post = Post.new
+    @pages = Post.page(params[:page]).per(5).order('created_at DESC')
   end
 
   def edit

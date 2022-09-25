@@ -1,29 +1,20 @@
 <div class='container'>
- <div class='row'>
-  <div class='col-sm-4'>
-   <div class='card mt-3 w-75 border-dark'>
-    <div class='card-header border-dark'>
-      <h5>きょうはさぼりましたか？</h5>
+  <div class='row'>
+    <div class='col-sm-4'>
+      <%= render 'info' %>
     </div>
-      <div class="card-body border-dark">
-       <div class="card-text">
-        下のぼたんからめも出来ます。
-       </div>
-       <div class='field text-center'>
-         <%= link_to 'めもる', new_public_post_path, class: "btn btn-outline-dark" %>
+    <div class='col-sm-8'>
+      <div class='card mt-3 border-dark'>
+        <div class='card-header text-center border-dark'>
+          <h4><strong>みんなのめも</strong></h4>
+        </div>
+        <div class='card-body'>
+          <%= render 'index', posts: @pages %>
+        </div>
       </div>
-  　</div>
-   </div>
+      <div class='mt-3'>
+       <%= paginate @pages %>
+      </div>
+    </div>
   </div>
-　　<div class='col-sm-8'>
-     <div class='card mt-3 border-dark'>
-      <div class='card-header text-center border-dark'>
-       <h4><strong>みんなのめも</strong></h4>
-      </div>
-       <div class='card-body border-dark'>
-        <%= render 'index', posts: @posts %>
-       </div>
-    </div>
-    </div>
- </div>
 </div>

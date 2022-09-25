@@ -1,7 +1,7 @@
 <%= form_with model: @post, url: public_post_path, method: :patch do |f| %>
   <div class="card mt-5 border-dark">
     <div class='card-header text-center border-dark'>
-      <h4内容変更</h4>
+      <h4><strong>内容変更</strong></h4>
     </div>
     <div class='card-body mb-3'>
       <div class='field ml-3 mb-3'>
@@ -20,5 +20,5 @@
         <%= f.submit 'ほぞんする', class: 'btn btn-outline-dark' %>
       </div>
     </div>
- </div>
-<% end %> 
+  </div>
+<% end %>

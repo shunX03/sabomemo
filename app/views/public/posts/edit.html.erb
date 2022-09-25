@@ -8,11 +8,9 @@
 <% end %>
 
 <div class='container'>
- <div class='row'>
-  <div class='col-md-8 offset-md-2'>
-  		<%= render 'form', post: @post %>
-  		<%= link_to 'Show', public_post_path(@post.id) %> |
-  		<%= link_to 'Back', public_posts_path, class: "back" %>
- </div>
- </div>
- </div>
+  <div class='row'>
+    <div class='col-md-8 offset-md-2'>
+      <%= render 'form', post: @post %>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,49 @@
-
+<div class='container' >
+  <div class='row'>
+    <div class='col-md-12 text-center py-5'>
+      <div class='welcome mt-3'>
+        <div class='top mr-3'>
+          <h1><strong>さぼめもへようこそ</strong></h1>
+        </div>
+        <div class='sub mt-5 mr-3'>
+          <h4><strong>~今日さぼってしまったあなたにとどけるメモ帳~</strong></h4>
+        </div>
+        <div class='login mt-5 mr-3'>
+          <%= link_to 'とうろく', new_user_registration_path, class: 'btn btn-outline-dark' %>
+          <%= link_to 'ろぐいん', new_user_session_path, class: 'btn btn-outline-dark' %>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-12 text-center py-5'>
+      <div class='mt-5 mr-3'>
+        <h2><strong>さぼめもとは...？</strong></h2>
+      </div>
+        <div class='mt-3 mr-3'>
+          みなさん、勉強や仕事などやることあるのにこんな場面になったことありませんか...？
+        </div>
+        <div class="text-center d-flex">
+          <div class="top-discription col-md-4 mt-5">
+            １日なにもせずだらだらしたり。
+            <%= image_tag 'home1.png', :size =>'300x300' %>
+          </div>
+          <div class="top-discription col-md-4 mt-5">
+            やることほっぽらかしてデートしたり。
+            <%= image_tag 'home2.png', :size =>'300x300' %>
+          </div>
+          <div class="top-discription col-md-4 mt-5">
+            全部投げ出して未来に逃げたり。
+            <%= image_tag 'home3.png', :size =>'300x300' %>
+          </div>
+        </div>
+    </div>
+      <div class='col-md-12 text-center py-5'>
+        <div class='mt-5'>
+          <h3><strong>そんなあなたにさぼった日だけ、出来事を記録するめも帳です。</strong></h3>
+        </div>
+          <div class='mt-3'>
+            <h6>もちべーしょん上げも良し、時間の使い方を変える為でも良し、ただの日記でもよし。<br>
+            このめも帳を通して、充実した時間が増えることを祈ってます。</h6>
+          </div>
+      </div>
+  </div>
+</div>
