@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-
+before_action :ensure_correct_user, only: [:edit]
  def new
     @post = Post.new
  end
@@ -23,7 +23,7 @@ class Public::PostsController < ApplicationController
       aaa=[public_completions_path,public_completions2_index_path, public_completions3_index_path, public_completions4_index_path, public_completions5_index_path, public_completions6_index_path]
       redirect_to aaa.sample
     else
-      @posts = Post.all
+      @pages = Post.page(params[:page]).per(10).order('created_at DESC')
       render :index
     end
   end
@@ -51,6 +51,12 @@ class Public::PostsController < ApplicationController
 
   def posts_params
     params.require(:post).permit(:title, :body, :waste, :evaluation)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    @user = @post.user
+    redirect_to public_posts_path unless @user == current_user
   end
 end
 

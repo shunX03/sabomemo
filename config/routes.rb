@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # ユーザー用
-devise_for :users,skip: [:passwords], controllers: {
+  devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
@@ -9,7 +9,7 @@ devise_for :users,skip: [:passwords], controllers: {
  get 'about' => 'public/homes#about'
 
  namespace :public do
-  resources :posts, only: [:index, :show, :edit, :new, :create, :destroy, :update] do
+  resources :posts, only: [:index, :edit, :new, :create, :destroy, :update] do
   resource :likes, only: [:create, :destroy]
 end
   resources :users, only: [:show,:edit,:update]
