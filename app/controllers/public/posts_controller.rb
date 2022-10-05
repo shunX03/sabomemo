@@ -19,6 +19,8 @@ before_action :ensure_correct_user, only: [:edit]
     @post = Post.new(posts_params)
     @post.user_id = current_user.id
     @posts = Post.all
+
+    @post.score = Language.get_data(posts_params[:body])
     if @post.save
       aaa=[public_completions_path,public_completions2_index_path, public_completions3_index_path, public_completions4_index_path, public_completions5_index_path, public_completions6_index_path]
       redirect_to aaa.sample

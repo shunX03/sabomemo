@@ -12,7 +12,8 @@
                 <%= post.created_at.strftime('%Y/%m/%d') %>
               </span>
               <strong>充実度：<%= post.evaluation_i18n %></strong> /
-              <strong><%= post.waste %>時間</strong>
+              <strong><%= post.waste %>時間</strong> /
+              <strong>投稿の充実分析すこあ:<%= post.score %></strong>
           </h6>
         </div>
         <div class="post-text mt-3">
