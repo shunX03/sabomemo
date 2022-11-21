@@ -8,7 +8,7 @@ Rails.application.routes.draw do
  root to: 'public/homes#top'
  get 'about' => 'public/homes#about'
 
- namespace :public do
+  scope module: :public do
   resources :posts, only: [:index, :edit, :new, :create, :destroy, :update] do
   resource :likes, only: [:create, :destroy]
 end

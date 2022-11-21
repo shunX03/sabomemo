@@ -21,11 +21,11 @@
     </div>
      <div class='media-footer border-bottom mt-3'>
        <% if post.liked_by?(current_user) %>
-        <%= link_to public_post_likes_path(post), class: 'text-dark', method: :delete do %>
+        <%= link_to post_likes_path(post), class: 'text-dark', method: :delete do %>
          <i class="fas fa-thumbs-up"></i><%= post.likes.count %>
         <% end %>
        <% else %>
-        <%= link_to public_post_likes_path(post), class: 'text-dark',  method: :post do %>
+        <%= link_to post_likes_path(post), class: 'text-dark',  method: :post do %>
          <i class="far fa-thumbs-up"></i><%= post.likes.count %>
         <% end %>
        <% end %>

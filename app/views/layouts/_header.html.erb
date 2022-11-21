@@ -9,17 +9,17 @@
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           <li>
-            <%= link_to public_user_path(current_user),class: 'nav-link text-dark form-inline' do %>
+            <%= link_to user_path(current_user),class: 'nav-link text-dark form-inline' do %>
             <h4 style="display:inline;">ま</h4>いぺーじ
             <% end %>
           </li>
           <li>
-            <%=  link_to public_posts_path ,class: 'nav-link text-dark' do %>
+            <%=  link_to posts_path ,class: 'nav-link text-dark' do %>
             <h4 style="display:inline;">み</h4>んなのめも
             <% end %>
           </li>
           <li>
-            <%=  link_to public_ranks_path ,class: 'nav-link text-dark' do %>
+            <%=  link_to ranks_path ,class: 'nav-link text-dark' do %>
             <h4 style="display:inline;">ら</h4>んきんぐ
             <% end %>
           </li>

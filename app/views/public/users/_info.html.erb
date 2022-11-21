@@ -3,7 +3,7 @@
     <div class="text-center">
      <span><%= image_tag user.get_profile_image, class: "rounded-circle", size:"90x85"%></span>
 	    <h4><%= user.name %></h4>
-	    <%=link_to edit_public_user_path, class: 'text-dark' do %>
+	    <%=link_to edit_user_path, class: 'text-dark' do %>
 	     <i class="fas fa-user-cog mt-2"></i>
 	    <% end %>
 	  </div>
@@ -12,6 +12,6 @@
 	  <%= user.introduction %>
 	 </div>
 	  <div class='card-footer text-center border-dark'>
-	    <%= link_to 'めもる', new_public_post_path, class: "btn btn-outline-dark" %>
+	    <%= link_to 'めもる', new_post_path, class: "btn btn-outline-dark" %>
 	  </div>
 	 </div>

@@ -16,7 +16,7 @@
      <strong><h4>ゆーざー編集</h4></strong>
     </div>
     <div class='card-body mb-3'>
-     <%= form_with model: @user, url: "/public/users/#{@user.id}", method: :patch  do |f| %>
+     <%= form_with model: @user, url: "/users/#{@user.id}", method: :patch  do |f| %>
       <div class="field col-md-6 ml-5 mt-3 mb-1">
        <%= f.label :name,'なまえ', class: 'h5 text-black' %>
         <%= f.text_field :name, placeholder:"なまえ", class: "form-control" %>
