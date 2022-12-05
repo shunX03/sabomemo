@@ -1,40 +1,38 @@
-<% if @user.errors.any? %>
-  <%= @user.errors.count %> 件のえらーが発生しました。
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
 <div class='container'>
- <div class='row'>
-  <div class='col-md-8 offset-md-2'>
-　 <div class="card mt-3 border-dark">
-    <div class='card-header text-center border-dark'>
-     <strong><h4>ゆーざー編集</h4></strong>
+  <div class='row'>
+    <div class='col-md-8 offset-md-2'>
+　    <div class="card mt-3 border-dark">
+        <div class='card-header text-center border-dark'>
+          <strong><h4>ゆーざー編集</h4></strong>
+        </div>
+        <div class='card-body mb-3'>
+          <% if @user.errors.any? %>
+            <%= @user.errors.count %> 件のえらーが発生しました。
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+          <% end %>
+          <%= form_with model: @user, url: "/users/#{@user.id}", method: :patch  do |f| %>
+            <div class="field col-md-6 ml-5 mt-3 mb-1">
+              <%= f.label :name,'なまえ', class: 'h5 text-black' %>
+                <%= f.text_field :name, placeholder:"なまえ", class: "form-control" %>
+            </div>
+            <div class="form-group ml-5 col-md-6">
+              <%= f.label :image,'とぷ画', class: 'h5 text-black' %>
+                <%= f.file_field :profile_image, class: "form-control-file", accept: 'image/*' %>
+            </div>
+            <div class="form-group ml-5 col-md-6">
+              <%= f.label :introduction,'ひとこと', class: 'h5 text-black' %>
+                <%= f.text_area :introduction, placeholder:"ひとこと", class: "form-control introduction" %>
+            </div>
+            <div class="actions  text-center">
+              <%= f.submit '保存する', class: 'btn btn-outline-dark' %>
+            </div>
+          <% end %>
+        </div>
+　    </div>
     </div>
-    <div class='card-body mb-3'>
-     <%= form_with model: @user, url: "/users/#{@user.id}", method: :patch  do |f| %>
-      <div class="field col-md-6 ml-5 mt-3 mb-1">
-       <%= f.label :name,'なまえ', class: 'h5 text-black' %>
-        <%= f.text_field :name, placeholder:"なまえ", class: "form-control" %>
-      </div>
-     <div class="form-group ml-5 col-md-6">
-        <%= f.label :image,'とぷ画', class: 'h5 text-black' %>
-        <%= f.file_field :profile_image, class: "form-control-file", accept: 'image/*' %>
-      </div>
-      <div class="form-group ml-5 col-md-6">
-        <%= f.label :introduction,'ひとこと', class: 'h5 text-black' %>
-        <%= f.text_area :introduction, placeholder:"ひとこと", class: "form-control introduction" %>
-      </div>
-       <div class="actions  text-center">
-        <%= f.submit '保存する', class: 'btn btn-outline-dark' %>
-      </div>
-    <% end %>
-   </div>
-　</div>
- </div>
-</div>
+  </div>
 </div>

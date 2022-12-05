@@ -4,6 +4,14 @@
       <h4><strong>内容変更</strong></h4>
     </div>
     <div class='card-body mb-3'>
+      <% if @post.errors.any? %>
+        <%= @post.errors.count %>件のえらーが発生しました。
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+          </ul>
+      <% end %>
       <div class='field ml-3 mb-3'>
         <%= f.text_area :body, class: 'form-control ', placeholder: '今日はなにしてさぼった？' %>
       </div>
