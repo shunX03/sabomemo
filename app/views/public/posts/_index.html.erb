@@ -20,16 +20,8 @@
           <%= post.body %>
         </div>
         <div class='media-footer border-bottom text-dark mt-2'>
-          <div id="like_buttons_<%= post.id %>">
+          <div id="like_<%= post.id %>">
 　　　      <%= render partial: 'public/likes/like', locals: {post: post} %>
-　　　        <% if post.user == current_user %>
-            <%= link_to post_path(post.id), class: 'text-dark text-right', method: :delete do %>
-              <i class="far fa-trash-alt fa-pull-right"></i>
-            <% end %>
-            <%= link_to edit_post_path(post.id),  class: 'text-dark text-right' do %>
-              <i class="fas fa-cog fa-pull-right mr-3"></i>
-            <% end %>
-          <% end %>
 　　      </div>
         </div>
       </div>

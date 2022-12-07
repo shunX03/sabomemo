@@ -7,3 +7,11 @@
     <i class="far fa-thumbs-up"></i><%= post.likes.count %>
   <% end %>
 <% end %>
+<% if post.user == current_user %>
+  <%= link_to post_path(post.id), class: 'text-dark text-right', method: :delete do %>
+    <i class="far fa-trash-alt fa-pull-right"></i>
+  <% end %>
+  <%= link_to edit_post_path(post.id),  class: 'text-dark text-right' do %>
+    <i class="fas fa-cog fa-pull-right mr-3"></i>
+  <% end %>
+<% end %>
