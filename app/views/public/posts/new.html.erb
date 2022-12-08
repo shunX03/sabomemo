@@ -1,38 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-8 offset-md-2'>
-      <%= form_with model: @post, url: posts_path, method: :post do |f| %>
-　      <div class="card mt-3 border-dark">
-          <div class='card-header text-center border-dark'>
-            <h4>めも</h4>
-          </div>
-          <div class='card-body mb-3'>
-            <% if @post.errors.any? %>
-              <%= @post.errors.count %>件のえらーが発生しました。
-                <ul>
-                  <% @post.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                    <% end %>
-                </ul>
-            <% end %>
-　　        <div class='field ml-3 mb-3'>
-              <%= f.text_area :body, class: 'form-control ', placeholder: '今日はなにしてさぼった？' %>
-            </div>
-            <div class='field col-md-4 mb-2'>
-              <%= f.number_field :waste, step: '0.1', class: 'form-control', placeholder: '何時間さぼった？' %>
-            </div>
-            <strong>今日の充実度は...</strong>
-            <div class='field ml-3 mt-2 form-check h5'>
-              <strong><%= f.collection_radio_buttons :evaluation, Post.evaluations_i18n, :first, :last %></strong>
-            </div>
-          </div>
-          <div class='card-footer border-dark'>
-            <div class="actions  mb-2 mt-2 text-right">
-              <%= f.submit 'めもる', class: 'btn btn-outline-dark' %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render 'new', post: @post %>
     </div>
   </div>
 </div>

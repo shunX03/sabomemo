@@ -20,8 +20,8 @@
           <%= post.body %>
         </div>
         <div class='media-footer border-bottom text-dark mt-2'>
-          <div id="like_<%= post.id %>">
-　　　      <%= render partial: 'public/likes/like', locals: {post: post} %>
+          <div id="like_buttons_<%= post.id %>">
+　　　      <%= render 'public/likes/like', post: post %>
 　　      </div>
         </div>
       </div>

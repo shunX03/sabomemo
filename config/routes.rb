@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'public/userranks'
   # ユーザー用
   devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   resource :likes, only: [:create, :destroy]
 end
   resources :users, only: [:show,:edit,:update]
-  resources :ranks, only: [:index]
+  resources :ranks, only: [:index,]
+  resources :myranks, only: [:index,]
   resources :completions, only: [:index]
   resources :completions2, only: [:index]
   resources :completions3, only: [:index]
