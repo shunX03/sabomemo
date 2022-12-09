@@ -19,7 +19,7 @@
         <%= f.number_field :waste, step: '0.1', class: 'form-control', placeholder: '何時間さぼった？' %>
       </div>
       <strong>今日の充実度は...</strong>
-      <div class='field ml-3 mt-2 form-check h5'>
+      <div class='field ml-3 mt-2 form-check h5 text-center'>
         <strong><%= f.collection_radio_buttons :evaluation, Post.evaluations_i18n, :first, :last %></strong>
       </div>
     </div>
