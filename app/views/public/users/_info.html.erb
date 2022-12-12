@@ -1,17 +1,28 @@
 <div class='card mt-3 w-75 border-dark'>
   <div class='card-header border-dark'>
     <div class="text-center">
-     <span><%= image_tag user.get_profile_image, class: "rounded-circle", size:"90x85"%></span>
+      <span><%= image_tag user.get_profile_image, class: "rounded-circle", size:"90x85"%></span>
 	    <h4><%= user.name %></h4>
 	    <%=link_to edit_user_path, class: 'text-dark' do %>
-	     <i class="fas fa-user-cog mt-2"></i>
+	      <i class="fas fa-user-cog mt-2"></i>
 	    <% end %>
 	  </div>
   </div>
-	 <div class='card-body border-dark text-center'>
-	  <%= user.introduction %>
-	 </div>
+	  <div class='card-body border-dark text-center'>
+	    <%= user.introduction %>
+	  </div>
 	  <div class='card-footer text-center border-dark'>
 	    <%= link_to 'めもる', new_post_path, class: "btn btn-outline-dark" %>
 	  </div>
-	 </div>
+</div>
+<div class='card mt-3 w-75 border-dark'>
+  <div class='card-header border-dark'>
+    <h5>今日の投稿数:<%= current_user.posts.where('created_at > ?', Date.today).count %></h5>
+  </div>
+  <div class="card-body">
+    <h5>昨日の投稿数:<%= @yesterday_post.count %></h5>
+  </div>
+  <div class='card-footer border-dark'>
+	  <h5>今週の投稿数:<%= @this_week_post.count %></h5>
+	</div>
+</div>

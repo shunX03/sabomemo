@@ -76,5 +76,5 @@ gem 'kaminari'
 
 gem 'rails-i18n'
 
-gem 'chart-js-rails', '~> 0.1.4'
+
 

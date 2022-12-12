@@ -16,6 +16,7 @@ end
   resources :users, only: [:show,:edit,:update]
   resources :ranks, only: [:index,]
   resources :myranks, only: [:index,]
+  resources :charts, only: [:index]
   resources :completions, only: [:index]
   resources :completions2, only: [:index]
   resources :completions3, only: [:index]
