@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   enum evaluation: {worst:1, bad:2, nb:3, good:4, best:5}
   validates :body, presence: true
   validates :waste, presence: true
-  validates :evaluation, presence: true
+  validates :evaluation, acceptance: false
 
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
   scope :created_yesterday, -> { where(created_at: 1.day.ago.all_day) }
