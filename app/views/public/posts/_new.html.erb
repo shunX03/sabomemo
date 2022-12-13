@@ -19,8 +19,8 @@
         <%= f.number_field :waste, step: '0.1', class: 'form-control', placeholder: '何時間さぼった？' %>
       </div>
       <strong>今日の充実度は...</strong>
-      <div class='field ml-3 mt-2'>
-        <strong><%= f.collection_radio_buttons :evaluation, Post.evaluations_i18n, :first, :last %></strong>
+      <div class='ml-3 mt-2  form-check'>
+       <%= f.select :evaluation, Post.evaluations.keys.map {|k| [I18n.t("enums.post.evaluation.#{k}"), k]}, {prompt: "選択してください"} %>
       </div>
     </div>
     <div class='card-footer border-dark'>
