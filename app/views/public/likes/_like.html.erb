@@ -1,14 +1,15 @@
 <% if post.liked_by?(current_user) %>
   <%= link_to post_likes_path(post), class: 'text-dark', method: :delete, remote: true do %>
-    <i class="fas fa-thumbs-up"></i><%= post.likes.count %>
+    <i class="fas fa-thumbs-up"></i>
   <% end %>
 <% else %>
   <%= link_to post_likes_path(post), class: 'text-dark',  method: :post, remote: true do %>
-   <i class="far fa-thumbs-up"></i><%= post.likes.count %>
+   <i class="far fa-thumbs-up"></i>
   <% end %>
 <% end %>
+<%= post.likes.length %>
 <% if post.user == current_user %>
-  <%= link_to post_path(post.id), class: 'text-dark text-right', method: :delete do %>
+  <%= link_to post_path(post.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }, remote: true, class: 'text-dark text-right' do %>
     <i class="far fa-trash-alt fa-pull-right"></i>
   <% end %>
   <%= link_to edit_post_path(post.id),  class: 'text-dark text-right' do %>
