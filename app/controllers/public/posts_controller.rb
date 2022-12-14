@@ -6,7 +6,7 @@ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
  def index
     @post = Post.new
-    @pages = Post.page(params[:page]).per(10).order('created_at DESC')
+    @pages = Post.page(params[:page]).per(5).order('created_at DESC')
  end
 
  def create
@@ -18,7 +18,7 @@ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
       result=[completions_path, completions2_index_path, completions3_index_path, completions4_index_path, completions5_index_path, completions6_index_path]
       redirect_to result.sample
   else
-      @pages = Post.page(params[:page]).per(10).order('created_at DESC')
+      @pages = Post.page(params[:page]).per(5).order('created_at DESC')
       render :new
   end
  end
